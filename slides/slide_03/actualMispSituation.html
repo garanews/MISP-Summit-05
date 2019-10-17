@@ -1,0 +1,73 @@
+<section id="actual-misp-situation" data-background-iframe="https://www.misp-project.org/2018/02/21/MISP.2.4.88.released.html" data-background-interactive></section>
+<section id="actual-misp-situation-1">
+    <div class="mainBox opaque">
+        <img src="slides/slide_03/misp-small.png" class="leftBadge"/>
+        <h1 class="title">Mysql search optimizations</h1>
+        <div class="mainText">
+            <p>Only data with same or double chunksize.</p>
+            <pre><code data-code="data/FuzzyCorrelateSsdeep.php" class="language-php" data-noescape data-trim></code></pre>                                  
+        </div>
+    </div>
+</section>
+<section id="actual-misp-situation-2">
+    <div class="mainBox opaque">
+        <img src="slides/slide_03/misp-small.png" class="leftBadge"/>
+        <h1>Mysql search optimizations</h1>
+        <div class="mainText">
+            <p>Only data with any seven-character string in common.</p>
+            <div style="width:50%; float:left">
+                <pre><code data-code="data/FuzzyCorrelateSsdeep2.php" class="language-php" data-noescape data-trim></code></pre>           
+            </div>
+            <div style="width:50%; float:left">
+                <pre><code class="language-bash" data-noescape data-trim>mysql> select count(*) from attributes where type="ssdeep";
+     count(*) : 4270
+
+mysql> select count(*) from fuzzy_correlate_ssdeep;
+     count(*) : 246285 
+
+mysql> select ssdeep from attributes where id=291630;
+     ssdeep  :  49152:F0Mnr<mark>n</mark>b04mvy6e4L ... hxq0v  
+
+mysql> select * from fuzzy_correlate_ssdeep;
+    +----+--------------+--------------+
+    | id | chunk        | attribute_id |
+    +----+--------------+--------------+
+    |  1 | F0Mnr<mark>n</mark>YAAAA= |       291630 |
+    |  2 | 0Mnr<mark>n</mark>b0AAAA= |       291630 |
+    |  3 | Mnr<mark>n</mark>b04AAAA= |       291630 |
+    |  4 | nr<mark>n</mark>b04kAAAA= |       291630 |
+    |  5 | r<mark>n</mark>b04msAAAA= |       291630 |
+    |  6 | <mark>n</mark>b04mvwAAAA= |       291630 |
+    |  7 | b04mvy4AAAA= |       291630 |
+    |  8 | 04mvy6cAAAA= |       291630 |
+    +----+--------------+--------------+
+</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="actual-misp-situation-3">
+    <div class="mainBox opaque">
+        <img src="slides/slide_03/misp-small.png" class="leftBadge"/>
+        <h1>ssdeep implementation</h1>
+        <div class="mainText">
+            <p>Standard php code used for string similarity</p>
+            <pre><code data-code="data/Attribute.php" class="language-php" data-noescape data-trim style="word-wrap:break-word;"></code></pre>
+        </div>
+    </div>
+</section>
+<section id="actual-misp-situation-4">
+    <div class="mainBox opaque">
+        <h1>Main issues</h1>
+        <div class="mainText huge">
+            <div style="float:left; width:50%">
+                <p>Accuracy</p>
+                <img src="slides/slide_03/arrow.png"/>
+            </div>
+            <div style="float:left; width:50%">
+                <p>Performance</p>
+                <img src="slides/slide_03/million_billion_trillion.png"/>
+            </div>
+        </div>
+    </div>
+</section>

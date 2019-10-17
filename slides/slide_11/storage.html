@@ -1,0 +1,57 @@
+<section id="storage">
+    <div class="mainBox opaque">
+        <h1>Storage</h1>
+        <div class="mainBox opaque">
+            <div class="mainText">
+                <p style="font-size: 40px; margin-right: 30px; margin-left: 30px; margin-bottom: 30px">At the beginning we stored data in Neo4j DB,<br/>
+                good for graph generation but not for retrieve whole data for compare.<br/>
+                After start store binaries instead strings in DB we evaluated MongoDB and PostgreSQL.</p> 
+                <img style="background-color: #222; border:none" src="slides/slide_11/neo4j.png" width="500px" height="300px">
+                <img style="background-color: #222; border:none" src="slides/slide_11/mongo.png" width="500px" height="300px">
+                <img style="background-color: #222; border:none" src="slides/slide_11/postgres.png" width="500px" height="300px">
+            </div>              
+        </div>
+    </div>
+</section>
+<section id="storage-1">
+    <div class="mainBox opaque">
+        <h1>And the winner is...</h1>
+        <div class="mainText"> 
+            <div style="float:left;">
+                <img src="slides/slide_11/graph.png" width="800px" >
+                <p style="font-size: 35px">PostgreSQL with asyncpg has good results: ~ 1M rows/sec</p>
+            </div>
+            <div style="text-align: left">
+                <p style="padding:15px!important;margin:5px!important;font-size: 36px;">
+                    <span style="text-decoration: underline;">asyncpg</span> is a new fully-featured open-source Python client library for PostgreSQL.<br/>
+                    It is built specifically for asyncio and Python 3.5 async / await.<br/>
+                    asyncpg is the fastest driver among common Python, NodeJS and Go implementations.
+                </p>
+            </div>
+            <div class="clear:both">&nbsp;</div>
+            <img src="slides/slide_11/vacuum.png" width="650px">
+        </div>
+    </div>
+</section>
+<section id="storage-2">
+    <div class="mainBox opaque">
+        <img src="slides\slide_11\zarr.png" class="leftBadge" />
+        <h1>Can we do more?</h1>
+        <div class="mainText">       
+            <div>
+                <p style="font-size: 40px">Lets't try saving binaries directly on disk: ZARR</p>
+                <p style="font-size: 34px">  
+                    <ul>Zarr Highlights:
+                        <li>Create N-dimensional arrays with any NumPy dtype.</li>
+                        <li>Chunk arrays along any dimension.</li>
+                        <li>Compress and/or filter chunks using any NumCodecs codec.</li>
+                        <li>Store arrays in memory, on disk, inside a Zip file, on S3, …</li>
+                        <li>Read an array concurrently from multiple threads or processes.</li>
+                        <li>Write to an array concurrently from multiple threads or processes.</li>
+                        <li>Organize arrays into hierarchies via groups.</li>   
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
