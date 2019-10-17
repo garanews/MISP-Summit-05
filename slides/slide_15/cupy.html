@@ -1,0 +1,50 @@
+<section id="cupy">
+    <div class="mainBox opaque">
+    	<span class="success leftBadge"><i class="far fa-check-square"></i>Easy =)</span>
+        <h1>CuPy: NumPy-compatible Lib. for GPU</h1>
+        <div class="mainText">
+            <p>Numpy is extensively used in python but GPU is not supported</p>
+            <p>GPU is getting faster and more important for scientific computing</p>
+            <img src="slides/slide_15/cupy.png" width="1000px"/>
+            <p>
+                <a href="https://www.slideshare.net/shoheihido/cupy-a-numpycompatible-library-for-gpu" target="_blank">
+                 <i class="fas fa-external-link-alt"></i> Shohei Hido slides</a>
+             </p>
+        </div>
+    </div>
+</section>
+<section id="cupy-1">
+    <div class="mainBox opaque">
+        <img src="slides/slide_15/cupy_logo.png" class="leftBadge"/>
+    	<h1>Is CuPy really easy?</h1>
+        <div class="mainText">
+            <img src="slides/slide_15/shouldnt_be_hard.png" style="float:right;margin-right: 6%"/>
+            <pre><code class="language-python" data-noescape data-trim>import numpy as <mark>np</mark>
+import cupy as <mark class="green">cp</mark>
+
+def ruzicka_numpy(vector_old, vector_new):
+    vector_old =  vector_old * <mark>np</mark>.arange(1023, -1, -1, dtype=<mark>np</mark>.uint16)
+    min_up = <mark>np</mark>.minimum(vector_old, vector_new)
+    max_down = <mark>np</mark>.maximum(vector_old, vector_new)
+    numerator = <mark>np</mark>.sum(min_up)
+    denominator = <mark>np</mark>.sum(max_down)
+    return <mark>np</mark>.divide(numerator, denominator)
+
+def ruzicka_cupy(vector_old, vector_new):
+    vector_old = vector_old * <mark class="green">cp</mark>.arange(1023, -1, -1, dtype=<mark class="green">cp</mark>.uint16)
+    min_up = <mark class="green">cp</mark>.minimum(<mark class="green">cp.array</mark>(vector_old), vector_new)
+    max_down = <mark class="green">cp</mark>.maximum(<mark class="green">cp.array</mark>(vector_old), vector_new)
+    numerator = <mark class="green">cp</mark>.sum(min_up, axis=1)
+    denominator = <mark class="green">cp</mark>.sum(max_down, axis=1)
+    return <mark class="green">cp.asnumpy</mark>(<mark class="green">cp</mark>.divide(numerator, denominator))</code></pre>
+        </div>
+    </div>
+</section>
+<section id="cupy-2">
+    <div class="mainBox opaque">
+    	<h1>Performance pt.6</h1>
+        <div class="mainText">
+            <img src="slides/slide_15/perf6.png"/>
+        </div>
+    </div>
+</section>

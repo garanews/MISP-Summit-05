@@ -1,0 +1,48 @@
+<section id="ram">
+    <div class="mainBox opaque">
+        <img src="slides/slide_12/dask.svg" class="leftBadge"/>
+        <h1>RAM</h1>
+        <div class="mainText">
+            <p>If number of samples grows to millions or billions? Say Hello to DASK!</p> 
+            <div>
+                <p style="font-size: 32px;">
+                    <ul>
+                        <li>Parallelized NumPy array and Pandas DataFrame object</li>
+                        <li>Task scheduling interface for custom workloads and integration with other projects</li>
+                        <li>Enables distributed computing in pure Python with access to the PyData stack</li>
+                        <li>Operates with low overhead, low latency, and minimal serialization</li>
+                        <li>Runs resiliently on clusters with 1000s of cores</li>
+                        <li>Trivial to set up and run on a laptop in a single process</li>
+                        <li>Designed with interactive computing in mind providing rapid feedback and diagnostics</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="ram-1">
+    <div class="mainBox opaque">
+        <img src="slides/slide_12/dask.svg" class="leftBadge"/>
+        <h1>Pros & Cons</h1>
+        <div class="mainText">
+            <div width="60%" style="float:right">
+                <img src="slides/slide_12/dask_plan.gif" width="1000px;" style="background:#fff;"/>
+            </div>
+            <div width="39%">
+                <p style="font-size: 40px">
+                    <h5 style="color:red;">CONs:</h5>
+                    <ul>
+                        <li>scheduling overhead (worst for small data)</li>
+                        <li>additional complexity (scheduler, workers)</li>
+                    </ul>
+                    <h5 style="color: green; padding-top: 25px;">PROs:</h5>
+                    <ul>
+                        <li>code runs on different machines</li>
+                        <li>memory managment</li>
+                        <li>data are splitted and processed in parallel</li>
+                    </ul>
+                </p>
+            </div> 
+        </div>
+    </div>
+</section>

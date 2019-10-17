@@ -1,0 +1,138 @@
+body:after {
+	content: url("../data/LOGO LEONARDO_full red.png");
+	transform: scale(.2);
+	position: fixed;
+	bottom: -3em;
+	left: -25em;
+	/*box-shadow: 5px 5px 10px #000; */
+}
+
+.mainBox.transparent{
+    background: rgba(22,22,22,0.6);
+}
+
+.mainBox.opaque{
+    /*background: rgb(22,22,22);*/
+}
+
+.mainBox p{
+    color:white;
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Open Sans';
+    font-weight: 600; 
+    font-style: italic;
+    font-size: 50px;
+    opacity: 1!important;
+}
+
+.mainBox p.fragment{
+    font-family: 'Covered By Your Grace'!important;
+    color: red!important;
+    font-size: 150px!important;
+}
+
+.mainBox ul{
+    color: white!important;
+}
+
+.mainBox h1{    
+    font-family: 'Covered By Your Grace', cursive;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 100px;
+    margin: 30px;
+    padding: 30px;
+    line-height: 1;
+    color: #EC0928;
+    margin-top: 50px !important;
+    text-shadow: none;
+}
+
+.mainBox h4{
+    font-family: monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    text-transform: none;
+    line-height: 1;
+    color: #22EE28;
+    text-align: left;
+}
+
+.mainBox .normalLeft{
+    text-align: left!important;
+    padding-left: 20px;
+}
+
+.mainBox .normalLeft p{
+    font-size: 30px!important;
+}
+
+pre {
+    width: 110%;
+}
+
+.mainText.huge p{
+    font-size: 90px; 
+}
+
+.success {
+    color: green;
+}
+
+.warning {
+    color: orange;
+}
+
+.error {
+    color: red;
+}
+
+.warning, .success, .error {
+    font-family: 'Covered By Your Grace'!important;
+    font-size: 60px!important;
+    text-decoration: underline;
+}
+
+.reveal code {
+  font-family: monospace; 
+}
+
+.reveal pre code {
+  display: block;
+  padding: 20px;
+  overflow: auto;
+  max-height: 700px;
+  word-wrap: normal; 
+}
+
+.reveal section img.leftBadge{
+    float: left;
+    border: none;
+    width: 200px;
+    background-color: #222;
+    text-shadow: none;
+    left: 10px;
+    top: 10px;
+    box-shadow:none;
+    position: absolute;
+}
+
+.reveal section span.leftBadge{
+    transform: rotate(-20deg);
+    float: left;
+    border: none;
+    width: 300px;
+    background-color: #222;
+    text-shadow: none;
+    left: 10px;
+    top: 10px;
+    box-shadow:none;
+    position: absolute;
+}
+
+.green{
+    background-color: green;
+    color: black;
+}

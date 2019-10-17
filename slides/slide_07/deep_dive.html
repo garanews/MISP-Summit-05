@@ -1,0 +1,84 @@
+<section id="deep_dive">
+    <div class="mainBox opaque">
+        <span class="warning leftBadge"><i class="far fa-check-square"></i>Medium</span>
+        <h1>Improve Performance</h1>
+        <div class="mainText">
+            <p>To increase the speed of the code is necessary to understand how it works:</p>
+            <div style="float:left;width:55%;">
+            	<pre><code data-code="slides/slide_07/original_old_code.py" class="language-python" data-noescape data-trim></code></pre>
+            </div>
+            <div style="float:left;width:45%;">
+            	<a href="https://en.wikipedia.org/wiki/Jaccard_index"><i class="fab fa-wikipedia-w"></i>
+ Jaccard Index</a>
+            	<p style="font-size:20px">
+            		The Jaccard index, also known as Intersection over Union and the Jaccard similarity coefficient (originally given the French name coefficient de communauté by Paul Jaccard), is a statistic used for gauging the similarity and diversity of sample sets.</p>
+            	<p style="font-size:20px">
+            		The Jaccard coefficient measures similarity between finite sample sets, and is defined as the size of the intersection divided by the size of the union of the sample sets: 
+            	</p>
+            	<img src="slides/slide_07/jaccard.png"/>
+            	<hr/>
+            	<p style="font-size:20px">
+If x and y are two vectors with all real &gt; 0, then their Jaccard similarity coefficient (also known then as <span style="color:red;font-size:bold;">Ruzicka similarity</span>) is defined as:
+				</p>
+				<img src="slides/slide_07/ruzicka.png"/>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="deep_dive-2">
+    <div class="mainBox opaque">
+        <h1>Ruzicka similarity</h1>
+        <div class="mainText">
+          <img src="slides\slide_07\ruzicka.gif"/>
+        </div>
+    </div>
+</section>
+<section id="deep_dive-3">
+    <div class="mainBox opaque">
+        <img src="slides/slide_07/numpy.png" class="leftBadge"/>
+        <h1>Introducing Numpy</h1>
+        <div class="mainText">    
+        	<div style="float:left;width:60%;">
+	        	<!--<pre><code data-code="slides/slide_07/original_new_code.py" class="language-python" data-noescape data-trim></code></pre>-->
+
+<pre><code class="hljs language-python" data-noescape data-trim>def matchVectors(self, vector_a, vector_b):
+    # ensure binary representation and apply weights
+    if not self._isDecompressed(vector_a):
+        vector_a = self.decompress(vector_a)
+    vector_a = self._apply_weights(vector_a)
+    if not self._isDecompressed(vector_b):
+        vector_b = self.decompress(vector_b)
+    vector_b = self._apply_weights(vector_b)
+    # calculate Jaccard index
+    <mark>if NUMPY_AVAILABLE:
+        maxPQ = np.sum(np.maximum(vector_a, vector_b))
+        return np.sum(np.minimum(vector_a, vector_b)) / maxPQ</mark>
+    intersection_score = 0
+    union_score = 0
+    jaccard_index = 0
+    for offset in range(len(vector_a)):
+        intersection_score += vector_a[offset] & vector_b[offset]
+        union_score += vector_a[offset] | vector_b[offset]
+    if union_score > 0:
+        jaccard_index = 1.0 * intersection_score / union_score
+    return jaccard_index</code></pre>
+	        </div>
+	        <div style="float:left;width:40%;">
+	        	<p style="font-size: 40px">
+	        		Our implementation has been accepted and merged in apivector source code:
+	        	</p>
+	        	<a href="https://github.com/danielplohmann/apiscout/commit/34f41d0be3d9cc2b14c2bc7b59d5a823c59dba14"><i class="fab fa-github"></i> Pull Request merged</a>
+	        	<img src="slides/slide_07/pull.png" width="600px">
+	        	<img src="slides/slide_07/pull2.png" width="600px">
+	        </div>
+        </div>
+    </div>
+</section>
+<section id="deep_dive-4">
+    <div class="mainBox opaque">
+        <h1>performance pt.3</h1>
+        <div class="mainText">
+            <img src="slides/slide_07/perf3.png">
+        </div>
+    </div>
+</section>
