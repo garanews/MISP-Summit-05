@@ -111,7 +111,8 @@ pre {
     float: left;
     border: none;
     width: 200px;
-    background-color: #222;
+    /*background-color: #222;*/
+    background: none;
     text-shadow: none;
     left: 10px;
     top: 10px;
